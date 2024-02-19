@@ -26,8 +26,8 @@ resource "aws_security_group" "main" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    from_port   = 80
-    to_port     = 80
+    from_port   = 8044
+    to_port     = 8044
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
