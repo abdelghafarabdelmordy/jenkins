@@ -28,7 +28,7 @@ pipeline {
         stage('Terraform Plan') {
     steps {
         script {
-            sh 'terraform plan -var-file="stageplan.tfvars"'
+            sh 'terraform plan -var-file="stage.tfvars"'
         }
     }
 }
@@ -45,7 +45,7 @@ pipeline {
 
                     if (userInput == 'Proceed') {
                         echo 'Running Terraform apply...'
-                        sh 'terraform apply -auto-approve -var-file="stageplan.tfvars"'
+                        sh 'terraform apply -auto-approve -var-file="stage.tfvars"'
                     } else {
                         echo 'Skipping Terraform apply.'
                     }
@@ -66,7 +66,7 @@ pipeline {
 
                 if (userInput == 'Proceed') {
                     echo 'Running Terraform destroy...'
-                    sh 'terraform destroy -auto-approve -var-file="stageplan.tfvars"'
+                    sh 'terraform destroy -auto-approve -var-file="stage.tfvars"'
                 } else {
                     echo 'Skipping Terraform destroy.'
                 }
