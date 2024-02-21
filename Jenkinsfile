@@ -8,13 +8,12 @@ pipeline {
         TF_VAR_vpc_cidr_block = '10.0.0.0/16'
         TF_VAR_subnet_cidr_blocks = '["10.0.1.0/24", "10.0.2.0/24"]'
         TF_VAR_availability_zones = '["us-east-1a", "us-east-1b"]'
-       
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/abdelghafarabdelmordy/jenkins.git'
+                git 'https://github.com/AdityaBrahmaSaiNarra/Iac.git'
             }
         }
 
@@ -46,7 +45,7 @@ pipeline {
 
                     if (userInput == 'Proceed') {
                         echo 'Running Terraform apply...'
-                        sh 'terraform apply -auto-approve -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="region=${TF_VAR_region}" -var="vpc_cidr_block=${TF_VAR_vpc_cidr_block}" -var="subnet_cidr_blocks=${TF_VAR_subnet_cidr_blocks}" -var="availability_zones=${TF_VAR_availability_zones}" '
+                        sh 'terraform apply -auto-approve -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="region=${TF_VAR_region}" -var="vpc_cidr_block=${TF_VAR_vpc_cidr_block}" -var="subnet_cidr_blocks=${TF_VAR_subnet_cidr_blocks}" -var="availability_zones=${TF_VAR_availability_zones}"'
                     } else {
                         echo 'Skipping Terraform apply.'
                     }
@@ -67,7 +66,7 @@ pipeline {
 
                 if (userInput == 'Proceed') {
                     echo 'Running Terraform destroy...'
-                    sh 'terraform destroy -auto-approve -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="region=${TF_VAR_region}" -var="vpc_cidr_block=${TF_VAR_vpc_cidr_block}" -var="subnet_cidr_blocks=${TF_VAR_subnet_cidr_blocks}" -var="availability_zones=${TF_VAR_availability_zones}" '
+                    sh 'terraform destroy -auto-approve -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="region=${TF_VAR_region}" -var="vpc_cidr_block=${TF_VAR_vpc_cidr_block}" -var="subnet_cidr_blocks=${TF_VAR_subnet_cidr_blocks}" -var="availability_zones=${TF_VAR_availability_zones}"'
                 } else {
                     echo 'Skipping Terraform destroy.'
                 }
