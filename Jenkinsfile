@@ -26,12 +26,12 @@ pipeline {
         }
 
         stage('Terraform Plan') {
-            steps {
-                script {
-                    sh 'terraform plan -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="region=${TF_VAR_region}" -var="vpc_cidr_block=${TF_VAR_vpc_cidr_block}" -var="subnet_cidr_blocks=${TF_VAR_subnet_cidr_blocks}" -var="availability_zones=${TF_VAR_availability_zones}"'
-                }
-            }
+    steps {
+        script {
+            sh 'terraform plan -var-file="stageplan.tfvars"'
         }
+    }
+}
 
         stage('Terraform Apply') {
             steps {
