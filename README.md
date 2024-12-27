@@ -1,13 +1,32 @@
-# Iac
 
-This Repo is to provision the AWS resources using jenkins
-Steps taken:
-1. Integrate the terraform with jenkins
-2. MangeJenkins --> Tools --> Add terrafrom path
-3. In this repo, you can pass your custom access key and secrete key as jenkins credentials, Those Jenkins Credentials can be mapped in environment section       with credentials ID.
-4. This repo consists of 3 files as of now, provider.tf - inwhich you can define what cloud provider you can use, main.tf - in which we keep all the resources    config.
-5. Let jus say if we want to create another resources, fork this repo and add all your tf files and add varaibles in variables.tf as needed.
+# Infrastructure as Code (IaC)
 
+This repository is designed to provision AWS resources using Jenkins and Terraform.
 
+## Steps to Get Started:
 
-Thank you
+1. **Integrate Terraform with Jenkins**  
+   - Configure Jenkins to work with Terraform.
+   - Navigate to `Manage Jenkins` → `Tools` → Add the Terraform executable path.
+
+2. **Set Up Credentials**  
+   - Pass your custom AWS Access Key and Secret Key as Jenkins credentials.
+   - Map these Jenkins credentials to the environment section using the Credentials ID.
+
+3. **Repository Structure**  
+   - The repository currently includes three key files:
+     - **`provider.tf`**: Define the cloud provider (e.g., AWS).
+     - **`main.tf`**: Configure all AWS resources.
+     - **`variables.tf`**: Define input variables required for resource configuration.
+
+4. **Adding New Resources**  
+   - To add additional resources:
+     1. Fork this repository.
+     2. Add new `.tf` files for your desired resources.
+     3. Update the `variables.tf` file with the required input variables.
+
+---
+
+Thank you! 😊
+
+--- 
